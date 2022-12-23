@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.*;
 
 class View extends JFrame {
 	public View() {
@@ -16,6 +17,8 @@ class TextChat extends JFrame implements ActionListener {
 	private JLabel l;
 
 	public TextChat() {
+		ArrayList <String> a;
+		a = new ArrayList<String>();
 		this.setTitle("Text Chat");
 		this.setSize(300, 400);
 		this.setLayout(new GridLayout(6, 1));
@@ -35,7 +38,8 @@ class TextChat extends JFrame implements ActionListener {
 		this.setVisible(true);
 		while (true) {
 			msg2 = cl.recv();
-			l.setText(msg2);
+			a.add(0, msg2);
+			l.setText(a.get(0));
 		}
 	}
 
